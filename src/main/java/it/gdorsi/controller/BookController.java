@@ -1,5 +1,6 @@
-package dev.danvega.output;
+package it.gdorsi.controller;
 
+import it.gdorsi.dao.Author;
 import org.springframework.ai.chat.ChatClient;
 import org.springframework.ai.chat.Generation;
 import org.springframework.ai.chat.prompt.Prompt;
@@ -7,7 +8,6 @@ import org.springframework.ai.chat.prompt.PromptTemplate;
 import org.springframework.ai.parser.BeanOutputParser;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Book;
 import java.util.Map;
 
 @RestController
@@ -21,10 +21,10 @@ public class BookController {
     }
 
     @GetMapping("/search-by-author")
-    public Author getBooksByAuthor(@RequestParam(value = "author", defaultValue = "Ken Kousen") String author) {
+    public Author getBooksByAuthor(@RequestParam(value = "author", defaultValue = "Dan Brown") String author) {
         String promptMessage = """
                 Generate a list of books written by the author {author}.
-                If the author is not recognized , don't invent it but write null inside author field.
+                If the author is not recognized don't invent but write null inside author field.
                 Each book is constituted by a book's array , each with a title and a year as values to contain.
                 If you aren't positive that a book belongs to this author please don't include it.
                 {format}
@@ -39,4 +39,5 @@ public class BookController {
         Generation generation = chatClient.call(prompt).getResult();
         return outputParser.parse(generation.getOutput().getContent());
     }
+
 }

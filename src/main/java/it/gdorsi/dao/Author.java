@@ -1,6 +1,6 @@
-package it.gdorsi.controller;
+package it.gdorsi.dao;
 
-import it.gdorsi.dao;import java.util.List;
+import java.util.List;
 
-public record Author(String author, List<dao.Book> books) {
+public record Author(String author, List<Book> books) {
 }
