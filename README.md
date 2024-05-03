@@ -1,7 +1,7 @@
 # Spring AI with local LLAMA3
 
 ## Overview
-This demo demonstrates the integration of a local LLama3 model for handling JSON responses within the Spring AI framework, positioning it as a 'business logic' executor. This provides a starting point specifically tailored for simple artificial intelligence workflows, using Java and Spring AI.
+This demo demonstrates the integration of a local LLama3 model for handling JSON responses within the Spring AI framework, positioning the model as a 'business logic' executor. This provides a starting point specifically tailored for simple artificial intelligence workflows, using Java and Spring AI.
 
 
 ## Prerequisites
